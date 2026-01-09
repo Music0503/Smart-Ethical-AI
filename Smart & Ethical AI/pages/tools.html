@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools & Techniques - Smart & Ethical AI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="text-gradient">Smart & Ethical AI</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">หน้าแรก</a></li>
+                    <li><a href="evolution.html">Evolution</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="tools.html" class="active">Tools</a></li>
+                    <li><a href="ethics.html">Ethics</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <section class="container section-padding text-center">
+            <h1 class="text-gradient" style="font-size: 3rem; margin-bottom: 20px;">AI Tools & Techniques</h1>
+            <p class="text-muted" style="max-width: 700px; margin: 0 auto;">
+                คลังเครื่องมือและเทคนิคพร้อมใช้เพื่อยกระดับการทำงาน</p>
+        </section>
+
+        <!-- Tools Grid -->
+        <section class="container section-padding">
+            <h2 class="section-title">Verified Tools</h2>
+            <div class="tools-grid">
+                <!-- Tool 1 -->
+                <!-- Tool 1 -->
+                <a href="https://www.youtube.com/watch?v=qlEQ7yTCRwQ" target="_blank" class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #00C4CC;"><i class="fas fa-shapes"></i></div>
+                        <div>
+                            <h3>Canva Magic Studio <i class="fas fa-external-link-alt"
+                                    style="font-size: 0.8rem; opacity: 0.7;"></i></h3>
+                            <span class="badge">Visual</span>
+                        </div>
+                    </div>
+                    <p>สร้างสไลด์และกราฟิกการสอนได้ในพริบตาด้วย AI Magic Write และ Magic Design (Watch Video)</p>
+                </a>
+                <!-- Tool 2 -->
+                <!-- Tool 2 -->
+                <a href="https://www.youtube.com/watch?v=gsu2VuuNSyw" target="_blank" class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #10a37f;"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <h3>ChatGPT / Claude <i class="fas fa-external-link-alt"
+                                    style="font-size: 0.8rem; opacity: 0.7;"></i></h3>
+                            <span class="badge">Text & Logic</span>
+                        </div>
+                    </div>
+                    <p>ผู้ช่วยคิดแผนการสอน ออกข้อสอบ และตรวจงานเขียนที่มีประสิทธิภาพสูง (Watch Video)</p>
+                </a>
+                <!-- Tool 3 -->
+                <!-- Tool 3 -->
+                <a href="https://www.youtube.com/watch?v=T2eRzCtXjB0" target="_blank" class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #ff5f5f;"><i class="fas fa-image"></i></div>
+                        <div>
+                            <h3>Midjourney / DALL-E <i class="fas fa-external-link-alt"
+                                    style="font-size: 0.8rem; opacity: 0.7;"></i></h3>
+                            <span class="badge">Image Gen</span>
+                        </div>
+                    </div>
+                    <p>สร้างภาพประกอบสื่อการเรียนการสอนที่ไม่ซ้ำใคร และไม่มีปัญหาลิขสิทธิ์ (ถ้าใช้ถูกวิธี) (Watch Video)
+                    </p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Prompt Templates -->
+        <section class="section-padding" style="background: var(--bg-secondary);">
+            <div class="container">
+                <h2 class="section-title">AI Lesson Planner Prompts</h2>
+                <p class="text-center text-muted" style="margin-bottom: 40px;">ก๊อปปี้เทมเพลตเหล่านี้ไปใช้สั่งงาน AI
+                    ได้เลย</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-header">
+                        <span><i class="fas fa-scroll"></i> สร้างแผนการสอน (Lesson Plan)</span>
+                        <button class="copy-btn" onclick="copyToClipboard('prompt1')"><i class="fas fa-copy"></i>
+                            Copy</button>
+                    </div>
+                    <div class="prompt-content" id="prompt1">
+                        ช่วยออกแบบแผนการสอนวิชา [วิชา] เรื่อง [หัวข้อ] สำหรับนักเรียนชั้น [ระดับชั้น] เวลา [จำนวน] คาบ
+                        โดยเน้นการเรียนรู้แบบ Active Learning และมีกิจกรรมกลุ่ม
+                        ขอเป้าหมายการเรียนรู้, กิจกรรมนำเข้าสู่บทเรียน, เนื้อหาหลัก, และเกณฑ์การวัดผล
+                    </div>
+                </div>
+
+                <div class="prompt-box" style="margin-top: 30px;">
+                    <div class="prompt-header">
+                        <span><i class="fas fa-question-circle"></i> ออกข้อสอบ (Quiz Generator)</span>
+                        <button class="copy-btn" onclick="copyToClipboard('prompt2')"><i class="fas fa-copy"></i>
+                            Copy</button>
+                    </div>
+                    <div class="prompt-content" id="prompt2">
+                        ช่วยออกข้อสอบปรนัย (Multiple Choice) จำนวน [10] ข้อ
+                        เกี่ยวกับเรื่อง [หัวข้อ] สำหรับเด็กอายุ [อายุ] ปี
+                        พร้อมเฉลยและคำอธิบายละเอียดสำหรับข้อที่ถูกต้อง
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="background: var(--bg-primary); padding: 40px 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <p class="text-muted">© 2024 Smart & Ethical AI</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+
+    <style>
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background: var(--surface-color);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+
+        .tool-header {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .tool-header h3 {
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        .prompt-box {
+            background: #1e1e2d;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .prompt-header {
+            background: #2d2d44;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .prompt-content {
+            padding: 20px;
+            font-family: monospace;
+            color: #d1d5db;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent-primary);
+        }
+    </style>
+</body>
+
+</html>
