@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Guidelines - Smart & Ethical AI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="text-gradient">Smart & Ethical AI</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">หน้าแรก</a></li>
+                    <li><a href="evolution.html">Evolution</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="ethics.html" class="active">Ethics</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <section class="container section-padding text-center">
+            <h1 class="text-gradient" style="font-size: 3rem; margin-bottom: 20px;">Guidelines & Ethics</h1>
+            <p class="text-muted" style="max-width: 700px; margin: 0 auto;">มาตรฐานและแนวทางปฏิบัติเพื่อการใช้งาน AI
+                อย่างปลอดภัยและเป็นธรรม</p>
+        </section>
+
+        <!-- Fact Checker -->
+        <section class="container section-padding">
+            <div class="guideline-card">
+                <div class="icon-box warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="content-box">
+                    <h2>Fact-Checking Suite</h2>
+                    <p>AI สามารถสร้างข้อมูลเท็จที่ดูเหมือนจริงได้เสมอ (Hallucination). นี่คือ Checklist ก่อนเชื่อ:</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-search"></i> <strong>Cross-Check:</strong>
+                            ตรวจสอบข้อมูลกับแหล่งอ้างอิงภายนอกที่น่าเชื่อถือ (Google, หนังสือ)</li>
+                        <li><i class="fas fa-calendar"></i> <strong>Date Check:</strong> ข้อมูลของ AI
+                            บางรุ่นอาจไม่อัปเดต (Cut-off date)</li>
+                        <li><i class="fas fa-calculator"></i> <strong>Math Logic:</strong> อย่าไว้ใจ AI
+                            เรื่องการคำนวณซับซ้อนโดยไม่ตรวจทาน</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Copyright -->
+        <section class="guideline-card-alt section-padding" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="guideline-layout reverse">
+                    <div class="content-box">
+                        <h2>Copyright & AI</h2>
+                        <p>ใครเป็นเจ้าของผลงาน? กฎหมายปัจจุบันยังคลุมเครือ แต่มีหลักปฏิบัติสากล:</p>
+                        <ul class="check-list">
+                            <li><i class="fas fa-copyright"></i> <strong>No Copyright Protection:</strong>
+                                ผลงานที่สร้างโดย AI 100% ส่วนใหญ่ไม่ได้รับความคุ้มครองลิขสิทธิ์</li>
+                            <li><i class="fas fa-user-edit"></i> <strong>Human Input:</strong>
+                                ลิขสิทธิ์อาจเกิดหากมนุษย์มีการ "คัดเลือกและเรียบเรียง" อย่างมีนัยสำคัญ</li>
+                            <li><i class="fas fa-ban"></i> <strong>Do Not Copy Styles:</strong>
+                                หลีกเลี่ยงการใช้ชื่อศิลปินเจาะจงใน Prompt เพื่อเลี่ยงการละเมิด</li>
+                        </ul>
+                    </div>
+                    <div class="icon-box info">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy -->
+        <section class="container section-padding">
+            <div class="guideline-card">
+                <div class="icon-box secure">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="content-box">
+                    <h2>Privacy First</h2>
+                    <p>ข้อมูลที่คุณป้อนให้ AI (โดยเฉพาะเวอร์ชันฟรี) อาจถูกนำไปใช้เทรนโมเดลต่อ</p>
+                    <div class="alert-box">
+                        <i class="fas fa-stop-circle"></i> ห้ามใส่ข้อมูลส่วนตัว (ชื่อ, เบอร์โทร, เลขบัตร) ลงใน Prompt
+                        เด็ดขาด
+                    </div>
+                    <div class="alert-box">
+                        <i class="fas fa-stop-circle"></i> ห้ามใส่ความลับทางการค้าหรือข้อมูลภายในองค์กร
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="background: var(--bg-primary); padding: 40px 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <p class="text-muted">© 2024 Smart & Ethical AI</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <style>
+        .guideline-card,
+        .guideline-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* Fixed typo logic if needed via Flex direction */
+
+        .icon-box {
+            font-size: 5rem;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .warning {
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .info {
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .secure {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .content-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .check-list li {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: baseline;
+        }
+
+        .check-list i {
+            color: var(--accent-primary);
+        }
+
+        .alert-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+
+            .guideline-card,
+            .guideline-layout {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .check-list li {
+                text-align: left;
+            }
+        }
+    </style>
+</body>
+
+</html>

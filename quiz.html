@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz (40 Questions) - Smart & Ethical AI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="text-gradient">Smart & Ethical AI</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">หน้าแรก</a></li>
+                    <li><a href="evolution.html">Evolution</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="ethics.html">Ethics</a></li>
+                    <li><a href="quiz.html" class="active">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <section class="container section-padding text-center">
+            <h1 class="text-gradient" style="font-size: 3rem; margin-bottom: 20px;">Final Assessment</h1>
+            <p class="text-muted" style="max-width: 700px; margin: 0 auto;">แบบทดสอบประมวลความรู้ 40 ข้อ
+                เพื่อวัดระดับความเข้าใจในการใช้ AI อย่างสร้างสรรค์และมีจริยธรรม</p>
+        </section>
+
+        <section class="container" style="max-width: 800px; padding-bottom: 80px;">
+            <div id="quiz-container" class="quiz-box">
+                <div class="quiz-header">
+                    <span id="question-number">Question 1/40</span>
+                    <span id="progress-text">Progress: 0%</span>
+                </div>
+                <div class="question-content">
+                    <h2 id="question-text">Loading...</h2>
+                    <div id="options-container" class="options-grid">
+                        <!-- Options will be here -->
+                    </div>
+                </div>
+                <!-- Navigation Buttons -->
+                <div class="quiz-footer">
+                    <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()" disabled>ถัดไป <i
+                            class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Result Section -->
+            <div id="result-container" class="quiz-box" style="display: none; text-align: center;">
+                <i class="fas fa-medal"
+                    style="font-size: 5rem; color: var(--accent-secondary); margin-bottom: 20px;"></i>
+                <h2 class="text-gradient">การทดสอบเสร็จสิ้น</h2>
+                <p class="text-muted" style="font-size: 1.2rem; margin: 20px 0;">คะแนนรวมของคุณ</p>
+                <h1 id="final-score" style="font-size: 4rem; margin-bottom: 10px;">0/40</h1>
+                <p id="feedback-text" style="color: white; margin-bottom: 30px;"></p>
+
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 30px 0;">
+
+                <h3 style="text-align: left; margin-bottom: 20px;">เฉลยและคำอธิบาย (Review)</h3>
+                <div id="review-container" style="text-align: left;">
+                    <!-- Review items will be generated here -->
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <button class="btn btn-secondary" onclick="location.reload()">ทำแบบทดสอบอีกครั้ง</button>
+                    <a href="../index.html" class="btn btn-primary" style="margin-left: 10px;">กลับสู่หน้าหลัก</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="background: var(--bg-primary); padding: 40px 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <p class="text-muted">© 2024 Smart & Ethical AI</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Database of 40 Questions
+        const questions = [
+            // --- Part 1: Basic Concept & Evolution (8 ข้อ) ---
+            { q: "ข้อใดคือความหมายที่ถูกต้องที่สุดของ Generative AI?", options: ["AI ที่ทำหน้าที่วิเคราะห์ข้อมูลเก่าเท่านั้น", "AI ที่สามารถสร้างเนื้อหาใหม่ได้ เช่น ข้อความ ภาพ เสียง", "หุ่นยนต์ที่ทำงานในโรงงานอุตสาหกรรม", "ระบบคอมพิวเตอร์ที่ใช้ในการคำนวณตัวเลขทางบัญชี"], a: 1 },
+            { q: "'Turing Test' ที่คิดค้นโดย Alan Turing มีวัตถุประสงค์เพื่ออะไร?", options: ["ทดสอบความเร็วของคอมพิวเตอร์", "ทดสอบว่าเครื่องจักรสามารถแสดงพฤติกรรมคล้ายมนุษย์ได้หรือไม่", "ทดสอบความทนทานของฮาร์ดแวร์", "ทดสอบระบบรักษาความปลอดภัยไซเบอร์"], a: 1 },
+            { q: "ข้อใดคือตัวอย่างของ Analytical AI (Traditional AI)?", options: ["ChatGPT เขียนบทความ", "Midjourney วาดภาพ", "Netflix แนะนำหนังที่น่าจะชอบ", "Suno แต่งเพลง"], a: 2 },
+            { q: "เหตุการณ์ใดถือเป็นจุดเปลี่ยนสำคัญในปี 1997?", options: ["Deep Blue ชนะแชมป์โลกหมากรุก", "AlphaGo ชนะแชมป์โกะ", "กำเนิด ChatGPT", "Siri เริ่มให้บริการ"], a: 0 },
+            { q: "ข้อใดไม่ใช่สิ่งที่ Generative AI สามารถสร้างได้ในปัจจุบัน?", options: ["รูปภาพเหมือนจริง", "โค้ดโปรแกรมคอมพิวเตอร์", "จิตวิญญาณและความรู้สึกจริงๆ", "บทกวีและเพลง"], a: 2 },
+            { q: "Large Language Model (LLM) คืออะไร?", options: ["โมเดลภาษาขนาดใหญ่ที่เรียนรู้จากข้อมูลมหาศาลเพื่อเข้าใจและสร้างภาษา", "โปรแกรมแปลภาษาแบบเก่ายุค 90", "ฐานข้อมูลพจนานุกรมออนไลน์", "หุ่นยนต์พูดได้"], a: 0 },
+            { q: "Deep Learning เกี่ยวข้องกับสิ่งใดมากที่สุด?", options: ["การท่องจำข้อมูล", "Neural Networks (โครงข่ายประสาทเทียม) ที่เลียนแบบสมองมนุษย์", "การเขียนโปรแกรมแบบ If-Else ทั่วไป", "การจัดเก็บข้อมูลใน Hard Disk"], a: 1 },
+            { q: "ยุคปัจจุบันของ AI (2022+) มักถูกเรียกว่ายุคอะไร?", options: ["The Age of Calculator", "The Generative AI Era", "The Industrial Revolution", "The Internet Age"], a: 1 },
+
+            // --- Part 2: AI for Education (10 ข้อ) ---
+            { q: "บทบาทของครูควรเปลี่ยนไปอย่างไรในยุค AI?", options: ["เลิกสอนแล้วให้ AI สอนแทน", "ทำหน้าที่เป็น Lecturer บรรยายความรู้เดิมซ้ำๆ", "เป็น Facilitator และ Coach คอยชี้แนะและกระตุ้นการคิด", "ห้ามให้นักเรียนใช้ AI เด็ดขาด"], a: 2 },
+            { q: "ข้อใดคือประโยชน์ของ AI สำหรับครูในการ 'ลดงานเอกสาร'?", options: ["ช่วยทำความสะอาดห้องพักครู", "ช่วยตรวจข้อสอบและวิเคราะห์ผลคะแนนอัตโนมัติ", "ช่วยไปซื้อกาแฟ", "ช่วยคุมสอบแทนครูโดยครูไม่ต้องอยู่"], a: 1 },
+            { q: "Personalized Learning Paths มีประโยชน์อย่างไรต่อนักเรียน?", options: ["ทำให้นักเรียนทุกคนเรียนเหมือนกันหมด", "ช่วยออกแบบแผนการเรียนที่เหมาะกับจุดแข็ง/จุดอ่อนของรายบุคคล", "ทำให้นักเรียนเรียนจบช้าลง", "ไม่มีประโยชน์"], a: 1 },
+            { q: "การใช้ AI เป็น 'Idea Generator' หมายถึงอะไร?", options: ["ให้ AI คิดแทนทุกอย่างโดยไม่ตรวจสอบ", "ใช้ AI ช่วยระดมสมองหาไอเดียกิจกรรมการสอนใหม่ๆ", "ให้ AI เขียนรายงานส่ง ผอ. ทั้งหมด", "ใช้ AI สร้างข่าวปลอม"], a: 1 },
+            { q: "Smart Classroom คืออะไร?", options: ["ห้องเรียนที่มีแต่หุ่นยนต์", "ห้องเรียนที่ติดแอร์เย็นๆ", "ห้องเรียนที่ใช้เทคโนโลยีเสริมการเรียนรู้และการโต้ตอบ", "ห้องเรียนที่ห้ามนักเรียนพกมือถือ"], a: 2 },
+            { q: "หากนักเรียนใช้ AI ทำการบ้านมาส่ง ครูควรทำอย่างไร?", options: ["ให้ 0 คะแนนทันที", "สอนให้นักเรียนตรวจสอบความถูกต้องและต่อยอดความคิดจาก AI", "ไล่ออก", "ไม่สนใจ ตรวจๆ ไป"], a: 1 },
+            { q: "ข้อใดคือแนวคิด 'AI as a Co-pilot'?", options: ["ให้นักเรียนเป็นกัปตัน และ AI เป็นผู้ช่วยสนับสนุน", "ให้ AI เป็นกัปตันนำทาง นักเรียนแค่นั่งเฉยๆ", "นักเรียนกับ AI แข่งกันว่าใครเก่งกว่า", "ห้ามใช้ AI ร่วมกับมนุษย์"], a: 0 },
+            { q: "การนำ AI มาช่วยวิเคราะห์ 'Learning Gap' ของนักเรียนจะช่วยแก้ปัญหาใด?", options: ["ปัญหานักเรียนมาสาย", "ปัญหานักเรียนเรียนไม่ทันเพื่อนหรือหลุดจากบทเรียน", "ปัญหาห้องเรียนสกปรก", "ปัญหาอาหารกลางวันไม่อร่อย"], a: 1 },
+            { q: "ทักษะใดสำคัญที่สุดสำหรับนักเรียนในยุค AI?", options: ["การท่องจำปีพุทธศักราช", "Critical Thinking (การคิดเชิงวิพากษ์)", "การคัดลายมือ", "การพิมพ์ดีดเร็ว"], a: 1 },
+            { q: "การใช้ AI Tutor (Chatbot) มีข้อดีคือ?", options: ["มันดุนักเรียนได้", "สามารถตอบคำถามและช่วยติวได้ตลอด 24 ชั่วโมง", "ราคาแพงมาก", "ทดแทนเพื่อนมนุษย์ได้ 100%"], a: 1 },
+
+            // --- Part 3: Tools & Techniques (12 ข้อ) ---
+            { q: "หากต้องการสร้างภาพประกอบแฟนตาซีสำหรับนิทาน ควรใช้เครื่องมือใด?", options: ["ChatGPT", "Midjourney หรือ DALL-E", "Excel", "PowerPoint"], a: 1 },
+            { q: "เครื่องมือใดเหมาะสำหรับการร่างโครงร่างวิชา (Syllabus) มากที่สุด?", options: ["Canva", "Photoshop", "ChatGPT / Claude", "Midjourney"], a: 2 },
+            { q: "Canva Magic Design ช่วยครูทำสิ่งใด?", options: ["สร้างสไลด์นำเสนอให้อัตโนมัติจากหัวข้อที่ป้อน", "คำนวณเกรดเฉลี่ย", "เขียนโค้ดภาษา Python", "แปลภาษาเสียง"], a: 0 },
+            { q: "Prompt คืออะไร?", options: ["คำสั่งเสียง", "ชุดคำสั่งหรือข้อความที่ป้อนให้ AI ทำงาน", "ปั๊มน้ำมัน", "โปรแกรมไวรัส"], a: 1 },
+            { q: "เทคนิคการเขียน Prompt ที่ดีควรมีองค์ประกอบใด?", options: ["เขียนสั้นๆ ห้วนๆ เช่น 'แมว'", "ระบุบทบาท, บริบท, งานที่ต้องการ, และรูปแบบผลลัพธ์ให้ชัดเจน", "ใช้คำหยาบคาย", "ภาษาต่างดาว"], a: 1 },
+            { q: "หากต้องการให้ ChatGPT ออกข้อสอบ ควรระบุสิ่งใดใน Prompt?", options: ["แค่บอกว่า 'ออกข้อสอบ'", "จำนวนข้อ, ระดับชั้น, หัวข้อ, และขอเฉลย", "ไม่ต้องระบุอะไรเลย", "พิมพ์ชื่อโรงเรียน"], a: 1 },
+            { q: "ข้อจำกัดสำคัญของ ChatGPT (Free version) คืออะไร?", options: ["คิดเลขเก่งเกินไป", "ข้อมูลอาจไม่อัปเดตเป็นปัจจุบันที่สุด (Knowledge Cutoff)", "ไม่สามารถพิมพ์ภาษาไทยได้", "ใช้งานได้เฉพาะตอนกลางคืน"], a: 1 },
+            { q: "Magic Write ใน Canva ทำหน้าที่คล้ายกับเครื่องมือใด?", options: ["Photoshop", "ChatGPT (Text Generation)", "Midjourney", "Google Maps"], a: 1 },
+            { q: "Claude.ai มีจุดเด่นเรื่องใดเมื่อเทียบกับ ChatGPT รุ่นแรกๆ?", options: ["วาดรูปสวยกว่า", "สามารถอ่านและวิเคราะห์ไฟล์เอกสารขนาดยาวได้ดี", "เล่นเกมได้", "ไม่มีจุดเด่น"], a: 1 },
+            { q: "ใน Midjourney คำสั่ง '/imagine' ใช้ทำอะไร?", options: ["เริ่มสร้างภาพจากข้อความ", "ลบภาพ", "สนทนากับบอท", "ปรับขนาดภาพ"], a: 0 },
+            { q: "หาก AI ตอบคำถามผิด เราควรทำอย่างไร?", options: ["เชื่อไปเลยเพราะ AI ฉลาด", "ด่า AI", "ให้ Feedback หรือระบุข้อมูลที่ถูกต้องลงไปใน Prompt เพื่อให้มันแก้ไข", "เลิกใช้คอมพิวเตอร์"], a: 2 },
+            { q: "Active Learning ที่ใช้ AI เข้าช่วย เช่น?", options: ["ให้ AI บรรยายให้นักเรียนฟัง 3 ชั่วโมง", "ให้นักเรียนใช้ AI สร้างบทละครและแสดงบทบาทสมมติ (Role Play)", "ให้นักเรียนจดตาม AI", "ให้นักเรียนนั่งสมาธิ"], a: 1 },
+
+            // --- Part 4: Ethics & Guidelines (10 ข้อ) ---
+            { q: "AI Hallucination คืออะไร?", options: ["อาการป่วยของหุ่นยนต์", "การที่ AI สร้างข้อมูลเท็จขึ้นมาอย่างมั่นใจ", "การที่ AI ทำงานช้า", "โหมดประหยัดพลังงานของ AI"], a: 1 },
+            { q: "ทำไมเราจึง 'ไม่ควร' ใส่ข้อมูลส่วนตัว (เช่น เลขบัตร ปชช.) ลงใน AI?", options: ["เพราะ AI จะจำไม่ได้", "เพราะข้อมูลอาจถูกนำไปใช้เทรนโมเดลและรั่วไหลสู่สาธารณะได้", "เพราะแป้นพิมพ์จะพัง", "เพราะผิดกฎโรงเรียน"], a: 1 },
+            { q: "สถานะลิขสิทธิ์ของภาพที่สร้างโดย AI (Pure AI Generated) คือ?", options: ["เป็นลิขสิทธิ์ของคนป้อนคำสั่งทันที", "ส่วนใหญ่ยังไม่ได้รับความคุ้มครองลิขสิทธิ์ตามกฎหมายปัจจุบัน", "เป็นลิขสิทธิ์ของบริษัทคอมพิวเตอร์", "เป็นของรัฐบาล"], a: 1 },
+            { q: "การใช้ AI ช่วยทำการบ้านโดย 'ก๊อปวาง' ทั้งหมด ถือว่าผิดจริยธรรมด้านใด?", options: ["ความซื่อสัตย์ทางวิชาการ (Academic Integrity)", "เมตตากรุณา", "ความประหยัด", "ความตรงต่อเวลา"], a: 0 },
+            { q: "Fact-Checking มีความจำเป็นหรือไม่เมื่อใช้ AI?", options: ["ไม่จำเป็น เพราะ AI ไม่เคยผิด", "จำเป็นมาก เพราะ AI อาจให้ข้อมูลมั่วได้", "จำเป็นเฉพาะวิชาเลข", "ไม่จำเป็นถ้าใช้เวอร์ชั่นเสียเงิน"], a: 1 },
+            { q: "Bias (อคติ) ใน AI เกิดจากสาเหตุใด?", options: ["AI นิสัยไม่ดี", "ข้อมูลที่ใช้สอน (Training Data) มีความลำเอียงหรืออคติแฝงอยู่", "อินเทอร์เน็ตช้า", "โปรแกรมเมอร์ลืมใส่โค้ด"], a: 1 },
+            { q: "Deepfake คืออะไร?", options: ["เทคโนโลยีปลอมแปลงใบหน้าหรือเสียงให้เหมือนบุคคลจริง", "การดำน้ำลึก", "ชื่อรุ่นของ AI", "แอปแต่งรูปการ์ตูน"], a: 0 },
+            { q: "แนวทาง 'Privacy First' หมายถึง?", options: ["ปิดคอมทุกครั้งหลังใช้", "ให้ความสำคัญกับการปกป้องข้อมูลส่วนบุคคลเป็นอันดับแรก", "ห้ามเล่นเน็ต", "ใช้ชื่อจริงเสมอ"], a: 1 },
+            { q: "หากพบว่านักเรียนใช้ AI ในทางที่ผิด ครูควรทำอย่างไร?", options: ["ประจานหน้าเสาธง", "ตักเตือนและสอนวิธีที่ถูกต้อง (Guidance over Punishment)", "แจ้งลบ account นักเรียน", "ยึดมือถือตลอดไป"], a: 1 },
+            { q: "หัวใจสำคัญของ 'Responsible AI' คือ?", options: ["ใช้ให้คุ้มค่าเงิน", "ใช้เพื่อเอาชนะผู้อื่น", "ใช้ด้วยความรับผิดชอบ โปร่งใส และมีจริยธรรม", "ใช้ให้เร็วที่สุด"], a: 2 }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(questions.length).fill(null); // Store user choices
+
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            document.getElementById('question-text').textContent = q.q;
+            document.getElementById('question-number').textContent = `Question ${currentQuestion + 1}/${questions.length}`;
+
+            // Update Progress
+            const progress = ((currentQuestion) / questions.length) * 100;
+            document.getElementById('progress-text').textContent = `Progress: ${Math.round(progress)}%`;
+
+            const optionsDiv = document.getElementById('options-container');
+            optionsDiv.innerHTML = '';
+
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt;
+
+                // If user already answered this (e.g. if we add Back button later), highlight it
+                if (userAnswers[currentQuestion] === index) {
+                    btn.classList.add('selected');
+                }
+
+                btn.onclick = () => selectAnswer(index, btn);
+                optionsDiv.appendChild(btn);
+            });
+
+            // Handle Next Button State
+            const nextBtn = document.getElementById('next-btn');
+            if (userAnswers[currentQuestion] !== null) {
+                nextBtn.disabled = false;
+            } else {
+                nextBtn.disabled = true;
+            }
+
+            // Change button text on last question
+            if (currentQuestion === questions.length - 1) {
+                nextBtn.innerHTML = 'ส่งคำตอบ <i class="fas fa-check"></i>';
+            } else {
+                nextBtn.innerHTML = 'ถัดไป <i class="fas fa-arrow-right"></i>';
+            }
+        }
+
+        function selectAnswer(index, btnElement) {
+            // Remove previous selection visual
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(b => b.classList.remove('selected'));
+
+            // Select new
+            btnElement.classList.add('selected');
+            userAnswers[currentQuestion] = index;
+
+            // Enable Next
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            // Calculate Score
+            score = 0;
+            userAnswers.forEach((ans, idx) => {
+                if (ans === questions[idx].a) {
+                    score++;
+                }
+            });
+
+            // Show UI
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('result-container').style.display = 'block';
+            document.getElementById('final-score').textContent = `${score}/${questions.length}`;
+
+            // Feedback Message
+            const percentage = (score / questions.length) * 100;
+            let msg = "";
+            let color = "";
+            if (percentage >= 80) { msg = "ยอดเยี่ยม! คุณคือผู้เชี่ยวชาญด้าน Smart AI"; color = "#10b981"; }
+            else if (percentage >= 50) { msg = "ทำได้ดี! คุณมีความเข้าใจพื้นฐานที่ดีเยี่ยม"; color = "#f59e0b"; }
+            else { msg = "พยายามอีกนิด! ลองทบทวนเนื้อหาแล้วมาลองใหม่นะ"; color = "#ef4444"; }
+            document.getElementById('feedback-text').textContent = msg;
+            document.getElementById('feedback-text').style.color = color;
+
+            generateReview();
+        }
+
+        function generateReview() {
+            const container = document.getElementById('review-container');
+            container.innerHTML = '';
+
+            questions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = userAns === q.a;
+
+                const box = document.createElement('div');
+                box.className = `review-box ${isCorrect ? 'correct' : 'wrong'}`;
+
+                let html = `<h4>${idx + 1}. ${q.q}</h4>`;
+
+                // Show Correct Answer
+                html += `<p class="ans-label">เฉลย: <span class="text-correct">${q.options[q.a]}</span></p>`;
+
+                // If wrong, show what user chose
+                if (!isCorrect) {
+                    const userText = userAns !== null ? q.options[userAns] : "ไม่ได้ตอบ";
+                    html += `<p class="ans-label">คุณตอบ: <span class="text-wrong">${userText}</span></p>`;
+                } else {
+                    html += `<p class="ans-label" style="color:#10b981;"><i class="fas fa-check-circle"></i> ถูกต้อง</p>`;
+                }
+
+                box.innerHTML = html;
+                container.appendChild(box);
+            });
+        }
+
+        // Initialize
+        loadQuestion();
+    </script>
+    <style>
+        .quiz-box {
+            background: var(--surface-color);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .question-content h2 {
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-primary);
+        }
+
+        .option-btn.selected {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .quiz-footer {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        /* Review Section Styles */
+        .review-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #555;
+        }
+
+        .review-box.correct {
+            border-left-color: #10b981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .review-box.wrong {
+            border-left-color: #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .review-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .ans-label {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            color: #ccc;
+        }
+
+        .text-correct {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .text-wrong {
+            color: #ef4444;
+            text-decoration: line-through;
+        }
+    </style>
+</body>
+
+</html>
